@@ -1,0 +1,6 @@
+# Arquivos do macOS
+.DS_Store
+
+# Anotações locais: não vão para o GitHub/site
+CLAUDE.md
+about.md
