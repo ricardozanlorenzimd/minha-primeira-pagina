@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -I \"$CLAUDE_PROJECT_DIR/.claude/scripts/tidy_html.py\" 2>/dev/null || true",
+            "timeout": 10,
+            "statusMessage": "Arrumando espaços do HTML…"
+          }
+        ]
+      }
+    ]
+  }
+}

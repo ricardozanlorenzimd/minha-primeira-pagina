@@ -1,0 +1,5 @@
+# Arquivos do repositório que NÃO devem virar páginas públicas na Vercel
+# (continuam no GitHub, só não são servidos pelo site)
+CLAUDE.md
+.claude
+.gitignore
