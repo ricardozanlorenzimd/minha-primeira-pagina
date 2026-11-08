@@ -24,6 +24,16 @@
     .contato:hover {
       background: #084a8c;
     }
+    .rodape {
+      margin-top: 2.5rem;
+      padding-top: 12px;
+      border-top: 1px solid #e8e0cc;
+      font-size: 0.85rem;
+      color: #555;
+    }
+    .rodape p {
+      margin: 0 0 6px;
+    }
   </style>
 </head>
 <body>
@@ -70,5 +80,36 @@
   <p>
     <a class="contato" href="mailto:rica.zanlorenzi@gmail.com">rica.zanlorenzi@gmail.com</a>
   </p>
+
+  <footer class="rodape">
+    <p id="atualizado">Última atualização: carregando…</p>
+    <p>
+      🔒 Essa data vem do GitHub por uma função na Vercel que usa a variável
+      de ambiente <code>GITHUB_TOKEN</code>. Ela fica só nas configurações da
+      Vercel, e não no git, porque é uma senha: o repositório é público, e
+      qualquer pessoa que lesse o código poderia usar o token.
+    </p>
+  </footer>
+
+  <script>
+    // Pede ao servidor da Vercel a data do último commit (api/atualizado.js)
+    var campo = document.getElementById("atualizado");
+    fetch("/api/atualizado")
+      .then(function (resposta) {
+        if (!resposta.ok) throw new Error();
+        return resposta.json();
+      })
+      .then(function (info) {
+        var data = new Date(info.data).toLocaleDateString("pt-BR", {
+          day: "numeric", month: "long", year: "numeric",
+        });
+        campo.textContent = "Última atualização: " + data + " — “" + info.mensagem + "”";
+      })
+      .catch(function () {
+        // Abrindo o arquivo direto no computador não existe servidor,
+        // então esta parte só funciona no site publicado.
+        campo.textContent = "Última atualização: disponível só no site publicado.";
+      });
+  </script>
 </body>
 </html>

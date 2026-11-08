@@ -4,3 +4,8 @@
 # Anotações locais: não vão para o GitHub/site
 CLAUDE.md
 about.md
+
+# Variáveis de ambiente locais (senhas/tokens): nunca vão para o git
+.env
+.env.*
+.vercel
